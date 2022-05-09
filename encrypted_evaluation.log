@@ -1,0 +1,37 @@
+2022-05-07 02:43:18,767 Epoch number:1000000 | Learning rate: 5e-05 | Plain total loss: 16456386045.654257 | plain test_set accuracy: 0.44 | Encrypted total loss: N/A | Encrypted test_set accuracy: N/A
+2022-05-07 02:47:18,655 Epoch number:1000000 | Learning rate: 0.0005 | Plain total loss: 16151206268.590847 | plain test_set accuracy: 0.44 | Encrypted total loss: N/A | Encrypted test_set accuracy: N/A
+2022-05-07 02:55:49,967 Epoch number:1000000 | Learning rate: 5e-05 | Plain final loss 56633377.02255974 | Plain total loss: 16452455961.47454 | plain test_set accuracy: 0.44 | Encrypted final loss N/A | Encrypted total loss: N/A | Encrypted test_set accuracy: N/A
+2022-05-08 23:53:30,504 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4785950415184004 | Plain test_set accuracy: 84.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 8084.999999999999
+2022-05-08 23:53:48,282 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4785950415184004 | Plain test_set accuracy: 84.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 8084.999999999999
+2022-05-08 23:55:39,397 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4785950415184004 | Plain test_set accuracy: 84.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 8084.999999999999
+2022-05-08 23:56:05,298 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4785950415184004 | Plain test_set accuracy: 84.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 80.85
+2022-05-08 23:56:26,387 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-08 23:57:02,650 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-08 23:57:19,798 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-08 23:58:09,146 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-08 23:58:19,020 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-08 23:59:11,574 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:01:26,073 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:02:03,623 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:02:35,974 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:03:59,402 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:04:25,811 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:04:46,083 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:05:29,315 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4440153724152105 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:08:55,296 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4197928815726237 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:09:07,615 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4197928815726237 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:09:16,259 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4197928815726237 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:10:00,846 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4197928815726237 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:10:42,782 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.468557444300359 | Plain test_set accuracy: 87.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 83.34
+2022-05-09 00:11:48,632 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.468557444300359 | Plain test_set accuracy: 87.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 83.34
+2022-05-09 00:12:22,667 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.468557444300359 | Plain test_set accuracy: 87.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 83.34
+2022-05-09 00:13:13,800 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4401784174136005 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 81.68
+2022-05-09 00:26:25,798 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4401784174136005 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 0.85
+2022-05-09 00:26:46,703 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4401784174136005 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 0.85
+2022-05-09 00:26:58,639 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4401784174136005 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 0.85
+2022-05-09 00:27:08,328 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4401784174136005 | Plain test_set accuracy: 85.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 85.0
+2022-05-09 00:28:19,008 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.5196768242958427 | Plain test_set accuracy: 87.0 | Encrypted final loss N/A | Encrypted test_set accuracy: 87.0
+2022-05-09 00:28:32,758 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.5196768242958427 | Plain test_set accuracy: 87.0 | Encrypted test_set accuracy: 87.0
+2022-05-09 00:28:52,463 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4721812793265945 | Plain test_set accuracy: 87.0 | Encrypted test_set accuracy: 87.0
+2022-05-09 00:30:40,137 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 2.6235106698329385 | Plain test_set accuracy: 86.0 | Encrypted test_set accuracy: 86.0
+2022-05-09 01:11:18,617 Epoch number:100000 | Learning rate: 5e-10 | Final Loss: 1.572228623006525 | Plain test_set accuracy: 87.0 | Encrypted test_set accuracy: 87.0

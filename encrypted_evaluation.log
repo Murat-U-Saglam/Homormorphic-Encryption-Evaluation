@@ -35,3 +35,5 @@
 2022-05-09 00:28:52,463 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 1.4721812793265945 | Plain test_set accuracy: 87.0 | Encrypted test_set accuracy: 87.0
 2022-05-09 00:30:40,137 Epoch number:50000 | Learning rate: 5e-10 | Final Loss: 2.6235106698329385 | Plain test_set accuracy: 86.0 | Encrypted test_set accuracy: 86.0
 2022-05-09 01:11:18,617 Epoch number:100000 | Learning rate: 5e-10 | Final Loss: 1.572228623006525 | Plain test_set accuracy: 87.0 | Encrypted test_set accuracy: 87.0
+2022-05-09 01:17:44,875 Epoch number:1000000 | Learning rate: 5e-10 | Final Loss: 1.579257855814327 | Plain test_set accuracy: 87.0 | Encrypted test_set accuracy: 87.0
+2022-05-09 01:22:36,729 Epoch number:100000 | Learning rate: 5e-10 | Final Loss: 1.572228623006525 | Plain test_set accuracy: 87.0 | Encrypted test_set accuracy: 87.0

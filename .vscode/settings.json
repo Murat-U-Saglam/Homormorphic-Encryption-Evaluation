@@ -1,5 +1,8 @@
 {
     "python.formatting.provider": "black",
     "python.linting.enabled": false,
-    "jupyter.jupyterServerType": "local"
+    "jupyter.jupyterServerType": "local",
+    "files.exclude": {
+        "**/.git": false
+    }
 }

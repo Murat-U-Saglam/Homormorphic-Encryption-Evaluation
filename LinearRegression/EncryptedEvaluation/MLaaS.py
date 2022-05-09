@@ -15,8 +15,9 @@
 # ### Execution environment
 # Since Jupyter notebookes work from a different directory the code block below changes the execution path to the root of the prject
 
-import client as cl
+import ContextGenerator as cl
 import os
+
 dir = os.getcwd()
 if dir.split("/")[-3] == "codebase":
     os.chdir("../../")
@@ -55,7 +56,6 @@ class LinearRegressionModel(nn.Module):
         return out
 
 
-
 def test_train_split(df):
     training_data = df.sample(frac=0.8, random_state=25)  #
     testing_data = df.drop(training_data.index)
@@ -68,7 +68,6 @@ def test_train_split(df):
         testing_data["Salary"].to_numpy(),
     )
     return x_train, y_train, x_test, y_test
-
 
 
 df = pd.read_csv("./LinearRegression/Data/Custom_Salary_Data.csv")
@@ -103,6 +102,7 @@ y_test_tensor = torch.from_numpy(y_test).double().requires_grad_()
 
 # -
 
+
 def train(model, optimizer, criterion, inputs, labels, epochs=EPOCHS):
     for epoch in range(epochs + 1):
         # Forward to get output
@@ -122,7 +122,6 @@ def train(model, optimizer, criterion, inputs, labels, epochs=EPOCHS):
     global Final_LOSS
     Final_LOSS = loss.item()
     return model
-
 
 
 model = train(model, optimizer, criterion, x_train_tensor, y_train_tensor, EPOCHS)
@@ -151,7 +150,6 @@ def accuracy(model, x, y):
     return torch.sum(accuracy).item() / len(accuracy) * 100
 
 
-
 plain_accuracy = accuracy(model, x_test_tensor, y_test_tensor)
 print(f"Accuracy on plain test_set: {plain_accuracy}, duration: {duration}")
 
@@ -162,10 +160,9 @@ class EncryptedLR:
         # so we take out the parameters from the PyTorch model
         self.weight = torch_linear_model.linear.weight.data.tolist()[0]
         self.bias = torch_linear_model.linear.bias.data.tolist()
-        
 
     def forward(self, enc_x):
-        #Propogate the network
+        # Propogate the network
         enc_out = enc_x.dot(self.weight) + self.bias
         return enc_out
 
@@ -191,12 +188,14 @@ def encrypted_evaluation(model, enc_x_test, y_test):
     with torch.no_grad():
         y_pred_enc = model(enc_x_test)
         y_pred_output = y_pred_enc.decrypt()
-        #Converting PlainTensor into pytorch tensor https://github.com/OpenMined/TenSEAL/blob/main/tutorials/Tutorial%202%20-%20Working%20with%20Approximate%20Numbers.ipynb
+        # Converting PlainTensor into pytorch tensor https://github.com/OpenMined/TenSEAL/blob/main/tutorials/Tutorial%202%20-%20Working%20with%20Approximate%20Numbers.ipynb
         y_pred_output = y_pred_output.tolist()
         y_pred_output = torch.FloatTensor(y_pred_output)
         ##################################################
         y_pred_output = torch.round(y_pred_output, decimals=-1)
-        y_real_rounded = torch.round(y_test, decimals=-1) # Rounding the Years of experience to the nearest whole number
+        y_real_rounded = torch.round(
+            y_test, decimals=-1
+        )  # Rounding the Years of experience to the nearest whole number
         y_real_rounded = torch.flatten(y_real_rounded)
         accuracy = torch.eq(y_pred_output, y_real_rounded)
     t_end = time.time()
@@ -204,7 +203,6 @@ def encrypted_evaluation(model, enc_x_test, y_test):
     encrypted_duration = t_end - t_start
     correct_guess = torch.sum(accuracy).item()
     return correct_guess / len(accuracy) * 100
-
 
 
 encrypted_linear_regression_model = EncryptedLR(model)
@@ -231,4 +229,3 @@ logger.setLevel(logging.DEBUG)
 logger.debug(
     f"Epoch number:{EPOCHS} | Learning rate: {learning_rate} | Final Loss: {Final_LOSS} | Plain test_set accuracy: {plain_accuracy} | Encrypted test_set accuracy: {E_accuracy if E_accuracy != 0 else 'N/A'}"
 )
-

@@ -22,3 +22,6 @@ def context_gen():
         "Automatic modulus switching is:", ("on" if context.auto_mod_switch else "off")
     )
     return context
+
+
+key_context = context_gen()

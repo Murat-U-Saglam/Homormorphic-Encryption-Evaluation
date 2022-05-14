@@ -5,18 +5,20 @@ import matplotlib.pyplot as plt  # for plotting
 import pandas as pd
 
 x, y = datasets.make_regression(
-    n_samples=500,  # number of samples
-    n_features=1,  # number of features
-    n_informative=1,  # number of useful features
-    noise=5,  # bias and standard deviation of the guassian noise
-    random_state=61,  # random seed
+    n_samples=2000,  # number of samples
+    n_features=5,  # number of features
+    n_informative=4 ,  # number of useful features
+    noise=1,  # bias and standard deviation of the guassian noise
+    random_state=10,  # random seed
 )  # set for same data points for each run
 
 # Scale feature x (years of experience) to range 0..20
 y = np.around(np.interp(y, (y.min(), y.max()), (0.1, 20)), decimals=2)
 
 # Scale target y (salary) to range 20000..150000
-x = np.around(np.interp(x, (x.min(), x.max()), (20000, 150000)), decimals=2)
+x = np.around(
+    np.interp(x, (x.min(), x.max()), (20000, 150000)), decimals=2
+)  # (20000, 150000)
 
 plt.plot(x, y, ".", label="training data")
 plt.xlabel("Salary")

@@ -12,8 +12,9 @@
 #     name: python3
 # ---
 
-from ContextGenerator import key_context as context
+from ET_ContextGenerator import key_context as context
 import os
+#22 elements took 
 
 dir = os.getcwd()
 if dir.split("/")[-3] == "codebase":
@@ -29,7 +30,6 @@ import tenseal as ts
 import time
 
 torch.random.manual_seed(10)
-# +
 class LinearRegressionModel(nn.Module):
     def __init__(self, input_dim, output_dim):
         super(LinearRegressionModel, self).__init__()
@@ -67,11 +67,15 @@ class EncryptedLinReg:
 
     def forward(self, enc_x):
         enc_out = enc_x.dot(self.weight) + self.bias
-        enc_out = EncryptedLinReg.sigmoid(enc_out)
+        # enc_out = EncryptedLinReg.sigmoid(enc_out)
+        enc_out = EncryptedLinReg.square(enc_out)
         return enc_out
 
     def backward(self, enc_x, enc_out, enc_y):
         out_minus_y = enc_out - enc_y
+        print(
+            f"Loss for current iteration is {sum(abs(number) for number in out_minus_y.decrypt())}"
+        )
         self._delta_w += enc_x * out_minus_y
         self._delta_b += out_minus_y
         self._count += 1
@@ -83,30 +87,34 @@ class EncryptedLinReg:
         # We use a small regularization term to keep the output
         # of the linear layer in the range of the sigmoid approximation
         self.weight -= (
-            self._delta_w * (1 / self._count) + self.weight * 0.05
-        )  # Our sigmoid work in the range of -5, 5 therefore we scale it down by 0.05
+            self._delta_w * (1 / self._count) + self.weight 
+        ) 
         self.bias -= self._delta_b * (1 / self._count)
         # reset gradient accumulators and iterations count
         self._delta_w = 0
         self._delta_b = 0
         self._count = 0
-
+    
+    
     @staticmethod
-    def sigmoid(enc_x):
-        # We use the polynomial approximation of degree 3
-        # sigmoid(x) = 0.5 + 0.197 * x - 0.004 * x^3
-        # from https://eprint.iacr.org/2018/462.pdf
-        # which fits the function pretty well in the range [-5,5]
-        return enc_x.polyval([0.5, 0.197, 0, -0.004])
+    def square(enc_x):
+        return enc_x * enc_x
 
     def plain_accuracy(self, x_test, y_test):
         # evaluate accuracy of the model on
         # the plain (x_test, y_test) dataset
         w = torch.tensor(self.weight)
         b = torch.tensor(self.bias)
-        out = torch.sigmoid(x_test.matmul(w) + b).reshape(-1, 1)
-        correct = torch.abs(y_test - out) < 0.5
-        return correct.float().mean()
+        out = (x_test.matmul(w) + b).reshape(-1, 1)
+        with torch.no_grad():  # no need to calculate gradients for testing
+            y_pred_experience = torch.round(
+                out, decimals=-1
+            )  # nearest year experience rounded to whole number
+            y_real_rounded = torch.round(
+                y_test, decimals=-1
+            )  # real salary (rounded unit: the thousands) LHS of the decimal
+            accuracy = torch.eq(y_pred_experience, y_real_rounded)
+        return torch.sum(accuracy).item() / len(accuracy) * 100
 
     def encrypt(self, context):
         # self.weight = ts.ckks_tensor(context, self.weight)
@@ -121,7 +129,6 @@ class EncryptedLinReg:
     def __call__(self, *args, **kwargs):
         return self.forward(*args, **kwargs)
 
-
 # +
 context = context
 
@@ -131,7 +138,7 @@ df = pd.read_csv("./LinearRegression/Data/Custom_Salary_Data.csv")
 
 
 def test_train_split(df):
-    training_data = df.sample(frac=0.8, random_state=25)  #
+    training_data = df.sample(frac=0.5, random_state=25)  #
     testing_data = df.drop(training_data.index)
     y_train, x_train = (
         training_data["YearsExperience"].to_numpy(),
@@ -167,9 +174,9 @@ enc_y_train = ts.ckks_vector(context, y_train.flatten())
 ########################################################################################################################
 t_end = time.time()
 print(f"Encryption of the training_set took {(t_end - t_start)} seconds")
+# -
 
 
-# +
 """
 
 # Use to build a good activation function
@@ -225,7 +232,7 @@ accuracy = eelr.plain_accuracy(x_test_tensor.float(), y_test_tensor.float())
 
 print(f"Accuracy at epoch #0 is {accuracy}")
 
-EPOCHS = 100000
+EPOCHS = 3
 
 times = []
 for epoch in range(EPOCHS):
@@ -238,10 +245,6 @@ for epoch in range(EPOCHS):
 
     t_start = time.time()
 
-    # for enc_x, enc_y in zip(enc_x_train, enc_y_train):
-    #    enc_out = eelr.forward(enc_x)
-    #    eelr.backward(enc_x, enc_out, enc_y)
-
     enc_out = eelr.forward(enc_x_train)
     eelr.backward(enc_x_train, enc_out, enc_x_train)
     eelr.update_parameters()
@@ -249,7 +252,9 @@ for epoch in range(EPOCHS):
     times.append(t_end - t_start)
 
     eelr.decrypt()
-    accuracy = eelr.plain_accuracy(x_test_tensor, y_test_tensor)
+    accuracy = eelr.plain_accuracy(
+        x_test_tensor.flatten().float(), y_test_tensor.float()
+    )
     print(f"Accuracy at epoch #{epoch + 1} is {accuracy}")
 
 

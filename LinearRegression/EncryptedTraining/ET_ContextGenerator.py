@@ -17,18 +17,17 @@ def context_gen():
             bits_scale,
             bits_scale,
             bits_scale,
-            bits_scale,  # Each epoch takes 2 Bit scale
-            bits_scale,  # Each epoch takes 2 Bit scale
-            bits_scale,  # Each epoch takes 2 Bit scale
-            bits_scale,  # Each epoch takes 2 Bit scale
-            bits_scale,  # Each epoch takes 2 Bit scale
-            bits_scale,  # Each epoch takes 2 Bit scale
-            bits_scale,  # Each epoch takes 2 Bit scale
-            bits_scale,  # Each epoch takes 2 Bit scale
-            bits_scale,  # Each epoch takes 2 Bit scale
-            bits_scale,  # Each epoch takes 2 Bit scale
-            bits_scale,  # Each epoch takes 2 Bit scale
-            #bits_scale,  # Each epoch takes 2 Bit scale
+            bits_scale,
+            bits_scale,
+            bits_scale,
+            bits_scale,
+            bits_scale,
+            bits_scale,
+            bits_scale,
+            bits_scale,
+            bits_scale,
+            bits_scale,
+            bits_scale,
             31,
         ],
     )

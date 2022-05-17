@@ -1,10 +1,13 @@
-import pandas as pd
 import tenseal as ts
 import os
 
 dir = os.getcwd()
 if dir.split("/")[-3] == "codebase":
     os.chdir("../../")
+
+
+# Different context since the training the model requires more mathematical operations
+# https://www.microsoft.com/en-us/research/wp-content/uploads/2017/12/sealmanual.pdf Heading 8.3
 
 
 def context_gen():

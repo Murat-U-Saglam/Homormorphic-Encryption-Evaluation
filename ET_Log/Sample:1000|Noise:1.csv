@@ -1,0 +1,4 @@
+Date,Level,Final Loss,Degree of accuracy (Decimal place),Encrypted test accuracy,Average duration per epoch,Memory of model,Memory usage of Encrypting X axis train set,Memory usage of Encrypting Y axis train set,Memory usage of Key generation
+2022/05/17 18:55:12,INFO,63518.72635859932, -1, 0.0, 3 , 3847.66, 3701.99 ,3705.92, 3485.52
+2022/05/17 19:04:58,INFO,4420050.032409437, -1, 0.0, 3 , 3848.82, 3703.32 ,3707.26, 3485.76
+2022/05/17 19:08:16,INFO,414539992.954338, -1, 0.0, 3 , 3847.99, 3702.32 ,3706.25, 3485.62

@@ -33,17 +33,6 @@ import tenseal as ts
 import time
 
 
-# +
-# importing module
-import logging
-
-# Create and configure logger
-logging.basicConfig(
-    filename="encrypted_evaluation.log", format="%(asctime)s %(message)s", filemode="a"
-)
-
-# -
-
 # To create consistency of random events to make the project reproducible
 
 torch.random.manual_seed(10)
@@ -254,10 +243,3 @@ if diff_accuracy < 0:
     print(
         "Oh! We got a better accuracy on the encrypted test-set! The noise was on our side..."
     )
-
-logger = logging.getLogger()
-# Setting the threshold of logger to DEBUG
-logger.setLevel(logging.DEBUG)
-logger.debug(
-    f"Epoch number:{EPOCHS} | Learning rate: {learning_rate} | Final Loss: {Final_LOSS} | Plain test_set accuracy: {plain_accuracy} | Encrypted test_set accuracy: {E_accuracy if E_accuracy != 0 else 'N/A'} | Decimal accuracty: {decimal_accuracy} | Duration: {duration} | Encrypted duration: {encrypted_duration}"
-)

@@ -106,8 +106,6 @@ class EncryptedLinReg:
             if norm > threshold or norm < -threshold:
                 self.weight = [weight * threshold / norm for weight in pt_weight]
 
-        # eelr.clip_delta_gradient(self.context)
-
     def clip_delta_gradient(self, context):
         """Implement gradient cliping by norm
         This will decrypt weight and clip the delta gradient via the norm

@@ -35,3 +35,7 @@ Contains the output of **dataset_generator.py**
 ***_Log**
 
 Contains the logs for the Encrypted Evaluation = EE and Encrypted Training = ET
+
+**LogParser.py**
+
+This is a script that parses the logs at EE_Log, in doing so it creates a file called findings.txt which agreegates the results.
